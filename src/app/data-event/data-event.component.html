@@ -1,0 +1,72 @@
+<!-- <h3 style="text-align:center;">{{titleVal + ' !'}}</h3> -->
+<!-- <h3 style="text-align:center;" innerHTML="{{titleVal}}"></h3> -->
+<h3 style="text-align:center;" [innerHTML]="titleVal"></h3>
+<!-- <h3 style="text-align:center;" [innerText]="titleVal"></h3> -->
+<!-- <h3 style="text-align:center;" [textContent]="titleVal"></h3> -->
+<!-- <img src="{{imgSrc}}" alt="{{titleVal}}"> -->
+<!-- <img src="{{dummyImageSrc}}" alt="{{dummyImageSrc}}"> -->
+<!-- <img [src]="dummyImageSrc" [alt]="dummyImageSrc" [title]="'dummyImage'"> -->
+
+<!-- table>tr*3>td*4>lorem1 -->
+<table [title]="tableTitle">
+    <tr [attr.data-title]="'some title1'">
+        <!-- <td [attr.colspan]="'2'">Lorem.</td> -->
+        <td [attr.colspan]="colSpan">Lorem.</td>
+        <td>Deleniti.</td>
+        <td>Voluptatem.</td>
+    </tr>
+    <tr [attr.data-title]="'some title2'">
+        <td>Culpa?</td>
+        <td>Culpa?</td>
+        <td>Totam!</td>
+        <!-- <td [attr.rowspan]="'2'">Iure.</td> -->
+        <td [attr.rowspan]="rowSpan">Iure.</td>
+    </tr>
+    <tr [attr.data-title]="'some title3'">
+        <td>Quasi!</td>
+        <td>Repudiandae.</td>
+        <td>Temporibus.</td>
+    </tr>
+</table>
+<div>
+    <!-- <button class="btn  m-2" [ngClass]="{
+        'btn-primary  some-other-class': !isActive,
+        'some-other-class1': !isActive,
+        'btn-danger': isActive
+    }">
+       {{
+           isActive?'Inactive':'Active'
+       }} 
+    </button> -->
+    <!-- <p class="p-2" [class.active]="isActive" [class.inactive]="!isActive">status : {{ isActive?'Active':'Inactive' }} </p> -->
+    <p class="p-2" [class.active]="isActive" [class.inactive]="!isActive" [style.fontWeight]="isActive?'bold':'normal'" [style.font-style]="isActive?'unset':'italic'">
+        status : {{ isActive?'Active':'Inactive' }}
+    </p>
+
+    <button class="btn btn-secondary" (click)="changeStatus()">Change Status ({{isActive}})</button>
+
+
+    <div class="btn-group">
+        <button class="m-2 btn btn-primary" (click)="getButtonDetails($event)">Save</button>
+        <button class="m-2 btn btn-info" (click)="getButtonDetails($event)">Get Info</button>
+        <button class=" m-2 btn btn-danger" (click)="getButtonDetails($event)">Delete</button>
+    </div>
+
+</div>
+
+<h3 class="mt-2">Get Title Form</h3>
+<!-- <div class="form-group">
+    <input type="text" class="form-control" name="title" placeholder="Enter Title" (keyup)="titleFieldFunction($event)" [value]="titleInputValue">
+</div>
+<div class="form-group">
+    <button class="btn btn-primary">Submit</button> <span *ngIf="!submitted"> Value: {{titleInputValue}}</span>
+</div>
+<div class="mt-2" *ngIf="submitted">Submitted Value={{titleInputValue}}</div> -->
+
+<h4>Event Filtering with angular</h4>
+<div class="form-group">
+    <input type="text" class="form-control" name="title" placeholder="Enter Title" (keyup.enter)="getTitleValue(titleInput)" #titleInput [value]="titleInputValue">
+</div>
+<div class="form-group">
+    <button class="btn btn-primary" (click)="getTitleValue(titleInput)">Submit</button> <span> Value: {{titleInputValue}}</span>
+</div>
