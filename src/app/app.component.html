@@ -10,10 +10,23 @@
   <!-- <app-courses></app-courses> -->
   <!-- <app-data-event></app-data-event> -->
   <!-- <app-binding></app-binding> -->
-  <app-pipes></app-pipes>
-
+  <!-- <app-carousel></app-carousel> -->
+  <!-- <app-pipes></app-pipes> -->
+  <!-- <app-product-list></app-product-list>
+<app-product-view></app-product-view> -->
 </div>
-
+<theme-basic>
+  <ng-container class="header">
+      <app-header></app-header>
+  </ng-container>
+  <!-- <ng-container class="header">
+      <div *ngIf="showMessage">test</div>
+  </ng-container> -->
+  <ng-container class="body">
+      <!-- <app-product-list></app-product-list> -->
+      <app-directive></app-directive>
+  </ng-container>
+</theme-basic>
 
 
 <router-outlet></router-outlet>
