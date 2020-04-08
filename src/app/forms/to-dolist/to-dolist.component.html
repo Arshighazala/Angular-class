@@ -1,0 +1,13 @@
+<div class="form-group">
+    <input type="text" class="form-control" name="newtopic" placeholder="Enter new Topic" #newtopic (keyup.enter)="addTopic(newtopic)">
+</div>
+<div class="form-group" formArrayName="skills">
+    <label>Skills</label>
+    <ng-container *ngFor="let skills of toDolist.get('skills')">
+        <input type="text" class="form-control mt-2" placeholder="Add-Skills" formControlName="{{i}}">
+    </ng-container>
+    <button (click)="onAddSkills()" class="btn btn-light btn-sm mt-3 btn-add"><i>+</i>Add Skills</button>
+
+    </div>
+    
+   

@@ -1,0 +1,41 @@
+<div class="form-box">
+    <h2>Sign-In Form</h2>
+    <form [formGroup]="signIn" (ngSubmit)="onSubmit()">
+        <div formGroupName="userDetails">
+            <div class="form-group">
+                <label for ="firstname">First Name</label> 
+                <input type="text" class="form-control" placeholder="Enter First Name" formControlName="firstname">
+            </div>
+            <label>Last Name</label>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Enter Last Name" formControlName="lastname">
+            </div>
+            <label>Contact Number</label>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Enter Contact Number :+91"
+                    formControlName="contactnum">
+            </div>
+        </div>
+        <!-- <label>Email ID</label>
+            <div class="form-group">
+                <input type="email" class="form-control" placeholder="Enter Email ID" formControlName="emailid">
+            </div> -->
+            <div class="form-group" formArrayName="skills">
+                <label >Skills</label>
+                <ng-container *ngFor="let skill of signIn.get('skills').controls ; index as i" >
+                 <input type="text" class="form-control mt-2" placeholder="Add Skills" formControlName="{{i}}">
+              </ng-container>
+                  <button (click)="onAddskills()"class="btn btn-light btn-sm mt-3 btn-add" ><i>+</i>Add Skills</button>
+            </div>
+            <label>Create Password</label>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Enter your password" formControlName="password">
+            </div>
+        
+        <div class="mt-2 mb-2">
+            <button class="btn btn-primary form-control" type="submit" >Submit</button>
+        </div>
+    </form>
+</div>
+<!-- {{signIn.value|json}} {{firstname.errors|json}} -->
+<!-- [disabled]="!signIn.valid" -->
